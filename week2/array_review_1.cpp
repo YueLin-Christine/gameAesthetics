@@ -58,15 +58,16 @@ int main()
    float sevenFloats[7];
    char fiveChars[5];
 		//test array values here:
-   cout << threeBools[3] <<endl;
-   cout << sevenFloats[7]<<endl;
-   cout << fiveChars[5] <<endl;
+   cout << threeBools[2] <<endl;
+   cout << sevenFloats[4]<<endl;
+   cout << fiveChars[1] <<endl;
    cout << tenInts[10] <<endl; // why the result is random?
 
 		//write here in comments what results you got for each test.
    //0
    //0
    //nothing
+   //random integer
 
 	//-----------------------------------------
 

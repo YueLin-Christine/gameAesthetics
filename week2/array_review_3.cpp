@@ -1,11 +1,11 @@
-//-----------------------------------------------------------------------------------------------------------
+,//-----------------------------------------------------------------------------------------------------------
 // GAME AESTHETICS: Array Review part 3
 //-----------------------------------------------------------------------------------------------------------
 
 #include <iostream>
 using namespace std;
 
-int main() 
+int main()
 {
 			//----------------------------------------//
 			//       ARRAYS AND LOOPS				  //
@@ -30,7 +30,7 @@ int main()
 	//	bigIntArray[3] = 0;
 	//	bigIntArray[4] = 0;
 	//	etc...
-	//  etc... 
+	//  etc...
 	//  finally..
 	//  bigIntArray[998] = 0;
 
@@ -47,7 +47,7 @@ int main()
 		}
 	}
 
-	// can you guess what the values of biggerArray will look like? 
+	// can you guess what the values of biggerArray will look like?
 	// we can print it out and check. how? with another loop of course.
 	// any time we see ourselves repeating code, we should ask if we can loop instead.
 
@@ -78,7 +78,7 @@ int main()
 
 
 
-	//next try making another array of chars bigger than 100 or 200, and try filling it in the same way. 
+	//next try making another array of chars bigger than 100 or 200, and try filling it in the same way.
 	//what happens when you print out the values?
 
 

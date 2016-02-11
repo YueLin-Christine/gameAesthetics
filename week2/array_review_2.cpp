@@ -5,14 +5,14 @@
 using namespace std;
 
 
-int main() 
+int main()
 {
 			//----------------------------------------//
 			//      MORE 1 DIMENSIONAL ARRAYS 		  //
 			//----------------------------------------//
 
 	//-----------------explicit initialization:----------------------------------------
-	
+
 	//we can also fill arrays manually, like so!
 
 	int sixInts[] = {100,101,102,103,104,105};
@@ -35,7 +35,7 @@ int main()
 		//		for sixInts[]...
 		//							{    0,     1,     2,    3,    4,    5     }
 		//		number of positions is  one,   two,  three, four, five, six.
-		//   
+		//
 		//		for fiveBools[]...
 		//				 			{  false,  true,  true,  true,  false   }
 		//		number of positions is  one,   two,  three, four,  five.
@@ -44,43 +44,105 @@ int main()
 	//-----------------accessing array values:----------------------------------------
 
 	// once we've created an array, we can access any value in it. this means we can also change it.
-	
-	// print out the SIXTH value in sixInts, then end the line. (remember we start counting from 0!)
-	cout << sixInts[5] << "\n\n";
 
-	// print out the FIRST value in greetings, then end the line. what will it show?
-	cout << "this is the value of greetings[0]:  ";
-	cout << greetings[0] << "\n\n";
 
-	// change the first value in greetings:
-	cout << "changing value of greetings[0]..." << "\n\n";
-	greetings[0] = "yo yo yo yoyoyoyoyo";
 
-	// then print it out again.
-	cout << "we changed the value of greetings[0] to: ";
-	cout << greetings[0] << "\n\n";
-	
-	// now we'll change the value with another string variable we'll set up.
-	string newGreetingValue = "hey hi hello what's up?!?";
-	greetings[0] = newGreetingValue;
-	cout << "we changed the value of greetings[0] yet again, to: ";
-	cout << greetings[0] << "\n\n";
+	// // print out the SIXTH value in sixInts, then end the line. (remember we start counting from 0!)
+	// cout << sixInts[5] << "\n\n";
+
+	// // print out the FIRST value in greetings, then end the line. what will it show?
+	// cout << "this is the value of greetings[0]:  ";
+	// cout << greetings[0] << "\n\n";
+
+	// // change the first value in greetings:
+	// cout << "changing value of greetings[0]..." << "\n\n";
+	// greetings[0] = "yo yo yo yoyoyoyoyo";
+
+	// // then print it out again.
+	// cout << "we changed the value of greetings[0] to: ";
+	// cout << greetings[0] << "\n\n";
+
+	// // now we'll change the value with another string variable we'll set up.
+	// string newGreetingValue = "hey hi hello what's up?!?";
+	// greetings[0] = newGreetingValue;
+	// cout << "we changed the value of greetings[0] yet again, to: ";
+	// cout << greetings[0] << "\n\n";
+
+
 
 	// EXERCISE:
-	// create two new arrays of the same data type. 
+	// create two new arrays of the same data type.
 		// such as: char firstChars[] and char secondChars[]
-	// fill them with values explictly. 
+	// fill them with values explictly.
 	// NEXT: swap values between them! how would you do that?
 		// hint - you'll need a temporary third variable.
 
 	//your code here---------------------------
 		//declare two new arrays here:
+   string starks[] = {
+      "Robb",
+      "Jon_Snow",
+      "Sansa",
+      "Arya",
+      "Brandon",
+   };
 
+   string lannisters[] = {
+      "Tywin",
+      "Cersei",
+      "Joffrey",
+      "Tyrion",
+      "Jamie",
+   };
+
+   string martens[7];
+
+   cout << "This is House stark: ";
+   for (int i = 0; i < 8; i++)
+   {
+      cout << starks[i] <<" ";
+   }cout << endl;
+
+   cout << "This is House Lannisters: ";
+   for (int i = 0; i < 8; i++)
+   {
+      cout << lannisters[i]<<" ";
+   }cout <<"\n"<< endl;
 
 
 		//swap all array values here:
 
 
+   //Q: how do I swap all the values if they have different sizes, say starks[5], lannisters[7];
+
+   for (int i = 0; i < 8; i++)
+   {
+      martens[i] = starks[i];
+   }
+
+   for (int i = 0; i < 8; ++i)
+   {
+      starks[i] = lannisters[i];
+   }
+
+   for (int i = 0; i < 8; ++i)
+   {
+      lannisters[i] = martens[i];
+   }
+
+
+   cout << "After swapping the values..."<<endl;
+   cout << "This is House stark: ";
+   for (int i = 0; i < 8; i++)
+   {
+      cout << starks[i] <<" ";
+   }cout << endl;
+
+   cout << "This is House Lannisters: ";
+   for (int i = 0; i < 8; i++)
+   {
+      cout << lannisters[i]<<" ";
+   }cout << endl;
 
 
 	//-----------------------------------------
