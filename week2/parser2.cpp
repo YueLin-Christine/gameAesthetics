@@ -15,8 +15,8 @@ using namespace std;
 	//								- getline is a way we can grab the whole thing.
 
 
-int main() 
-{	
+int main()
+{
 	// "cin" is no good with multiple words! we want multiple commands to parse.
 	// what happens if we combine cin and getline()?
 	cout << "write at least two words: ";
@@ -50,8 +50,23 @@ int main()
 	//
 	//
 	//psuedocode:
-	//
-	//
+
+	// 1) declare a variable to store the string.
+   string words;
+   // 2) ask to enter the string.
+   cout << "How's the weather today?" << endl;
+   // 3) use getline(cin, stringVariable) to get the whole thing.
+   getline(cin, words);
+   cout << words << "\n";
+   // 4) convert the whole thing into caps
+   for(int i = 0; i < words.size(); i++){
+      words.at(i) = toupper(words.at(i));
+   }
+   cout << "Converted words: " << words << endl;
+
+	// 5) declare a char variable,
+   // 6) if the char variable equals " ", do "endl";
+   // 7) if the char doesn't equal to a " ", print out the "character"
 	//
 	//experiment with isspace(charVariable)
 	//

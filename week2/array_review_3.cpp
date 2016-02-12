@@ -1,4 +1,4 @@
-,//-----------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------
 // GAME AESTHETICS: Array Review part 3
 //-----------------------------------------------------------------------------------------------------------
 
@@ -17,11 +17,11 @@ int main()
 
 	//-----------------loop initialization:----------------------------------------
 
-	int bigIntArray[999]; //create array of ints with 999 positions.
+	// int bigIntArray[999]; //create array of ints with 999 positions.
 
-	for (int i = 0; i < 999; i++) {
-		bigIntArray[i] = 0;	//this sets every position in the array to 0.
-	}
+	// for (int i = 0; i < 999; i++) {
+	// 	bigIntArray[i] = 0;	//this sets every position in the array to 0.
+	// }
 
 	//this is the equivalent of writing:
 	//	bigIntArray[0] = 0;
@@ -37,23 +37,23 @@ int main()
 	// its often smart to declare a CONSTANT INT to say what the size of our array will be.
 	// this means that we don't need to repeat ourselves all the time.
 
-	const int biggerArraySize = 1000;
-	int biggerArray[biggerArraySize];
-	for (int i = 0; i < biggerArraySize; i++) {
-		if (i % 2 == 0) {
-			biggerArray[i] = 0;
-		} else {
-			biggerArray[i] = 1;
-		}
-	}
+	// const int biggerArraySize = 1000;
+	// int biggerArray[biggerArraySize];
+	// for (int i = 0; i < biggerArraySize; i++) {
+	// 	if (i % 2 == 0) {
+	// 		biggerArray[i] = 0;
+	// 	} else {
+	// 		biggerArray[i] = 1;
+	// 	}
+	// }
 
-	// can you guess what the values of biggerArray will look like?
-	// we can print it out and check. how? with another loop of course.
-	// any time we see ourselves repeating code, we should ask if we can loop instead.
+	// // can you guess what the values of biggerArray will look like?
+	// // we can print it out and check. how? with another loop of course.
+	// // any time we see ourselves repeating code, we should ask if we can loop instead.
 
-	for (int i = 0; i < biggerArraySize; i++) {
-		cout << biggerArray[i] << endl;
-	}
+	// for (int i = 0; i < biggerArraySize; i++) {
+	// 	cout << biggerArray[i] << endl;
+	// }
 
 	//again, this is equivalent to:
 	//cout << bigIntArray[0] << endl;
@@ -74,16 +74,46 @@ int main()
 	// however for the next array, try to fill it with your looping value (... ie. "i" in for (int i = 0; i < 10; i++)...)
 	// see what happens - print out the results!
 
+   const int size = 50;
+   char chars1[size];
+   char chars2[size];
+   for (int i = 0; i < size; i++)
+   {
+      chars1[i] = 'a';
+   }
 
+   for(int i=0; i<size; i++){
+      chars2[i] = i;
+   }
 
+   //print out
+   for (int i = 0; i < size; i++)
+   {
+      cout << chars1[i] << endl;
+   }cout <<"\n\n";
+
+   for(int i=0; i<size; i++){
+      cout << chars2[i]-0<< endl;
+   }cout <<"\n\n";
 
 
 	//next try making another array of chars bigger than 100 or 200, and try filling it in the same way.
 	//what happens when you print out the values?
 
+   const int biggerSize = 200;
+   char chars3[biggerSize];
 
+   for(int i=0; i < biggerSize; i++){
+      chars3[i] = i;
+   }
 
+   //print out
+   for (int i = 0; i < biggerSize; i++)
+   {
+      cout << chars3[i]-0 << endl;
+   }cout <<"\n\n";
 
+   //it becomes -128 after 127
 
 	return 0;
 }

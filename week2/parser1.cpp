@@ -14,16 +14,16 @@ using namespace std;
 
 // here we will use:
 
-	// toupper(charVariable)	- transform the charVariable into an upper case one. 
+	// toupper(charVariable)	- transform the charVariable into an upper case one.
 	//							- this way we can remove case-sensitivity from our parser and only handle all-capitals.
 
 	// stringVariable.size()	- we can get the length of a string this way - that is, how many characters.
 	//							- its kind of like getting the size of an array, as strings are basically arrays of chars
 
-	// stringVariable.at(index) 	- get the character at position "index" in our string. 
+	// stringVariable.at(index) 	- get the character at position "index" in our string.
 	//								- remember, strings are basically arrays of chars.
 
-int main() 
+int main()
 {
 	//we want everything to be uppercase, so we can identify strings that we want easily.
 	cout << "type something: ";
@@ -34,7 +34,7 @@ int main()
 	//loop through the entire string, convert it character by character
 	//answer.size() gives us the whole size of the string, which is perfect to plug into the loop.
 	//then we access each char individually with answer.at(i) and change it to uppercase.
-	for (int i = 0; i < answer.size(); i++) {	
+	for (int i = 0; i < answer.size(); i++) {
 		cout << "converting letter " << answer.at(i) << "\n";
 		answer.at(i) = toupper(answer.at(i));
 	}
@@ -43,8 +43,7 @@ int main()
 	// EXERCISE:___________________________________________________
 	// try storing multiple words in "answer instead of just one". see what happens.
 
-
-
+   //it only print out the first word.
 
 	// cin will be inadequate for what we need to do!
 	//_____________________________________________________________
