@@ -181,19 +181,17 @@ int main()
    //1D array:
    int d1[CS * RS];
    for (int i = 0; i < CS; i++){
-      for (int j = 0; i < RS; j++){
-         d1[i * RS + j] = '_'-0;
+      for (int j = 0; j < RS; j++){
+         d1[i * RS + j] = '0';
       }
    }
 
    //print out the 1D array:
    for (int i = 0; i < CS; i++){
-      for (int j = 0; i < RS; j++){
-         cout<< d1[i * RS + j];
+      for (int j = 0; j < RS; j++){
+         cout<< (char)d1[i * RS + j];
       }cout << endl;
    }
-
-
 
 	//________________________________________________________________
 
