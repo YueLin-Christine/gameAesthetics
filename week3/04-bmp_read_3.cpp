@@ -5,9 +5,47 @@ using namespace std;
 char getTile(int x, int y, unsigned char data[], int size, int w, int h);
 int writeBytes(int offset, unsigned char data[]);
 
+class Landtype{
+public:
+   Hongkong();// How do I know what kind of parameters do I need here
+   Jungle();
+   DisneyMovie();
+   void loadMap();
+
+   string description;
+   bool goRight;
+   bool goLeft;
+   bool moveForward;
+   bool moveBackward;
+   bool goUp;
+   bool goDown;
+
+private:
+   //what to put inside of private
+};
+
+void Landtype::loadMap(){
+
+}
+
+Landtype::Hongkong(){
+   //custom object properties
+   ifstream map("hongkong.bmp");
+}
+
+Landtype::Jungle(){
+   //custom object properties
+   ifstream map("jungle.bmp");
+}
+
+Landtype::DisneyMovie(){
+   //custom object properties
+   fstream map("disneyMovie.bmp");
+}
+
+
 int main() {
-	// ifstream map("blankbmp.bmp");
-	ifstream map("8x8flipped.bmp");
+	// ifstream map("8x8flipped.bmp");
 	unsigned char data; //variable to store temporary bytes
 
 	const int BMPSIZE = 248;	//actual size in bytes of the bmp file

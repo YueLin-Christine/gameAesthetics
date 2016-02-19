@@ -5,10 +5,13 @@ using namespace std;
 class Room {
 public:
    string description;
-   bool canGoNorth;
-   bool canGoEast;
-   bool canGoSouth;
-   bool canGoWest;
+
+   bool goRight;
+   bool goLeft;
+   bool moveForward;
+   bool moveBackward;
+   bool goUp;
+   bool goDown;
 };
 
 
@@ -27,10 +30,13 @@ int main()
    for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
          map[j][i].description = "There's nothing here!";
-         map[j][i].canGoNorth = false;
-         map[j][i].canGoEast = false;
-         map[j][i].canGoWest = false;
-         map[j][i].canGoSouth = false;
+         map[j][i].goRight = false;
+         map[j][i].goLeft = false;
+         map[j][i].moveForward = false;
+         map[j][i].moveBackward = false;
+         map[j][i].goUp = false;
+         map[j][i].goDown = false;
+
       }
    }
 
