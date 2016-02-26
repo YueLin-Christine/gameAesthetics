@@ -6,26 +6,6 @@ using namespace std;
 char getTile(int x, int y, unsigned char data[], int size, int w, int h); // how to know what kind of parameters do we need in this?
 int writeBytes(int offset, unsigned char data[]);
 
-void match(int i, int j, int matches) {
-   char grid[i][j];
-   if(i > 0 && grid[i-1][j] == grid[i][j]) {
-      cout << "match on " << i-1<< ", "<< j<< endl;
-      match(i-1, j, matches+1);
-   }
-   if(i < w && grid[i+1][j] == grid[i][j]) {
-      cout << "match on " << i+1<< ", " << j<< endl;
-      match(i+1, j, matches+1);
-   }
-   if(j >0 && grid[i][j-1] == grid[i][j]) {
-      cout << "match on " << i<< ", " << j-1<< endl;
-      match(i, j-1, matches+1);
-   }
-   if(j < h && grid[i][j+1] == grid[i][j]) {
-      cout << "match on " << i<< ", " << j+1<< endl;
-      match(i, j+1, matches+1);
-   }
-}
-
 int main() {
 
 	ifstream map("8x8flipped.bmp"); //NEED TO FLIP ROW ORDER IN PS! otherwise counts from bottom
@@ -81,17 +61,44 @@ int main() {
 		int inputSwapX;
 		int inputSwapY;
 
+
 		cout << "\tPick x coord: ";
 		cin >> inputX;
 
+      while(inputX<0 || inputX >w){
+         cout << "\tInvalid entry\n";
+         cout << "\tPick a valid value:";
+         cint>>inputX;
+      }
+
 		cout << "\tPick y coord: ";
 		cin >> inputY;
+      while(inputY<0 || inputY >h){
+         cout << "\tInvalid entry\n";
+         cout << "\tPick a valid value:";
+         cint>>inputX;
+      }
 
 		cout << "\tSwap which x coord: ";
 		cin >> inputSwapX;
+      while(inputSwapX< inputSwapX-1 || inputSwapX >inputSwapX+1){
+         cout << "\tInvalid entry\n";
+         cout << "\tPick a valid value:";
+         cint>>inputX;
+      }
 
 		cout << "\tSwap which y coord: ";
 		cin >> inputSwapY;
+      while(inputSwapY<inputSwapY-1 || inputSwapY > inputSwapY+1){
+         cout << "\tInvalid entry\n";
+         cout << "\tPick a valid value:";
+         cint>>inputX;
+      }
+
+      if(inputX == inputSwapX && inputY == inputSwapY){
+         cout<<"\n\n Cant' swapt with itself!\n";
+         continue;
+      }
 
 		//swap grid positions!
 		//STUDENTS: make sure you can only swap with ADJACENT positions
@@ -119,58 +126,68 @@ int main() {
       // cout<<endl;
 
       // method 2:
-      char temp;
-      if (inputSwapX == inputX && inputSwapY == inputY + 1){
-         temp = grid[inputX][inputY];
-         grid[inputX][inputY] = grid[inputSwapX][inputSwapY];
-         grid[inputSwapX][inputSwapY] = temp;
-      }else if (inputSwapX == inputX && inputSwapY == inputY - 1){
-         temp = grid[inputX][inputY];
-         grid[inputX][inputY] = grid[inputSwapX][inputSwapY];
-         grid[inputSwapX][inputSwapY] = temp;
-      }else if (inputSwapX == inputX +1 && inputSwapY == inputY){
-         temp = grid[inputX][inputY];
-         grid[inputX][inputY] = grid[inputSwapX][inputSwapY];
-         grid[inputSwapX][inputSwapY] = temp;
-      }else if (inputSwapX == inputX -1 && inputSwapY == inputY){
-         temp = grid[inputX][inputY];
-         grid[inputX][inputY] = grid[inputSwapX][inputSwapY];
-         grid[inputSwapX][inputSwapY] = temp;
-      }else{
-         cout << "\nPlease only choose adjacent positions to swap.\n";
-      }
-      cout<<endl;
+      // char temp;
+      // if (inputSwapX == inputX && inputSwapY == inputY + 1){
+      //    temp = grid[inputX][inputY];
+      //    grid[inputX][inputY] = grid[inputSwapX][inputSwapY];
+      //    grid[inputSwapX][inputSwapY] = temp;
+      // }else if (inputSwapX == inputX && inputSwapY == inputY - 1){
+      //    temp = grid[inputX][inputY];
+      //    grid[inputX][inputY] = grid[inputSwapX][inputSwapY];
+      //    grid[inputSwapX][inputSwapY] = temp;
+      // }else if (inputSwapX == inputX +1 && inputSwapY == inputY){
+      //    temp = grid[inputX][inputY];
+      //    grid[inputX][inputY] = grid[inputSwapX][inputSwapY];
+      //    grid[inputSwapX][inputSwapY] = temp;
+      // }else if (inputSwapX == inputX -1 && inputSwapY == inputY){
+      //    temp = grid[inputX][inputY];
+      //    grid[inputX][inputY] = grid[inputSwapX][inputSwapY];
+      //    grid[inputSwapX][inputSwapY] = temp;
+      // }else{
+      //    cout << "\nPlease only choose adjacent positions to swap.\n";
+      // }
+      // cout<<endl;
+
+
 
 		//check for matches:
 		//STUDENTS: (advanced) - to do this properly you'll need a recursive function.
-		int matches1 = 0;
+		int matches = 0;
       for (int i = 0; i < h; i++) {
          for (int j = 0; j < w; j++) {
             if(grid[inputX][inputY] == grid[inputX+i][inputY+j]){
-               // match(inputX, inputY);
+               matches++;
                cout << "match on " << inputX+i<< ", " << inputY+j << endl;
             }
             if (grid[inputSwapX][inputSwapY] == grid[inputSwapX+i][inputSwapY+j]) {
-               match(inputSwapX, inputSwapY);
-               matches2++;
+               matches++;
                cout << "match on " << inputSwapX+i << ", " << inputSwapY+j << endl;
             }
          }
       }
 
-      match(inputX, inputY, matches1);
-      matches1 ++;
+      match(inputX, inputY, matches);
+      matches ++;
 
       if (matches >= 2) {
       //    destroy everything around the original swap position.
       //    STUDENTS: try making it destroy only the tiles matching it.
-         for (int i = 0; i < w; i++) {
-            for (int j = 0; j < h; j++) {
-               // if(grid[inputX][inputY] == grid[inputX+i][inputY+j]){
-               // BEGINNER STUDENTS: make sure it doesn't go off the grid!
-               // right now we can escape the grid entirely by accessing a negative position on the array!
-                  grid[inputX+i][inputY+j] = ' ';
-               // }
+         for (int i = -1; i < 2; i++) {
+            for (int j = -1; j < 2; j++) {
+               if(inputX+i >=0 && inputX+i < w && inputY+j >=0 && inputY +j){
+                  if(grid[inputX+i][inputY+j] == grid[inputX][inputY]){
+                  // BEGINNER STUDENTS: make sure it doesn't go off the grid!
+                  // right now we can escape the grid entirely by accessing a negative position on the array!
+                     grid[inputX+i][inputY+j] = ' ';
+                  }
+               }
+               if(inputSwapX+i >=0 && inputSwapX+i < w && inputSwapY+j >=0 && inputSwapY +j){
+                  if(grid[inputSwapX+i][inputSwapY+j] == grid[inputSwapX][inputSwapY]){
+                  // BEGINNER STUDENTS: make sure it doesn't go off the grid!
+                  // right now we can escape the grid entirely by accessing a negative position on the array!
+                     grid[inputSwapX+i][inputSwapY+j] = ' ';
+                  }
+               }
             }
          }
       }else {
