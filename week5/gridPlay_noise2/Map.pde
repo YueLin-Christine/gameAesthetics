@@ -13,7 +13,7 @@ class Map {
     map = new String[width/cellsize][height/cellsize];
     //noiseSeed(0);
     noiseDetail(4, 0.7);
-    
+
     isOcean = new boolean[width/cellsize][height/cellsize];
     isPlains = new boolean[width/cellsize][height/cellsize];
     isHills = new boolean[width/cellsize][height/cellsize];
@@ -67,7 +67,7 @@ class Map {
     for (int i = 0; i < height/cellsize; i++) {
       for (int j = 0; j < width/cellsize; j++) {
         //How to set color for different type?
-        
+
         //noStroke();
         //if (map[j][i].equals("o")) {
         //  fill(0, 0, 255);
