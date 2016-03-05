@@ -16,3 +16,33 @@ void draw() {
   map.update();
   map.draw();
 }
+
+void keyPressed() {
+  if (key == CODED) {
+    if (keyCode == UP) {
+      //if (map.grid[player.xPos][player.yPos-1] == '#') 
+      if (map.isSpace[player.xPos][player.yPos-1] == false) {
+      } else {
+        player.yPos -=1;
+      }
+    }
+    if (keyCode == DOWN) {
+      if (map.isSpace[player.xPos][player.yPos+1] == false) {
+      } else {
+        player.yPos +=1;
+      }
+    }
+    if (keyCode == LEFT) {
+      if (map.isSpace[player.xPos-1][player.yPos] == false) {
+      } else {
+        player.xPos -=1;
+      }
+    }
+    if (keyCode == RIGHT) {
+      if (map.isSpace[player.xPos+1][player.yPos] == false) {
+      } else {
+        player.xPos +=1;
+      }
+    }
+  }
+}
